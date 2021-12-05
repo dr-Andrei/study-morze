@@ -8,8 +8,11 @@ body {
     width: 80%;
     margin: auto;
 }
+.container p {
+    font-size: 20px;
+}
 .button {
-    margin: 6px 5%;
+    margin: 6px 1%;
     padding: 10px 20px;
     background-color: rgb(186,237,246);
     color: rgb(42, 4, 4);
@@ -23,7 +26,13 @@ body {
 .button:active {
     box-shadow: 0 0 8px #000;
 }
-
+.container__button-start {
+    letter-spacing: 0.2em;
+}
+.container__button-onload, .container__button-show {
+    background: #291a42;
+    color:rgb(242, 253, 237);
+}
 .container__text {
     padding: 10px;
     font-size: 22px;
@@ -32,6 +41,7 @@ body {
     border-radius: 10px;
     height: 300px;
     width: 100%;
+    color:#444;
 }
 .clear {
     height: 40px;
@@ -46,4 +56,25 @@ body {
 }
 .clear:active {
     box-shadow: 0 0 5px rgb(41, 53, 32);
+}
+.input {
+    width: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    margin-left: 4%;
+    border-radius: 10px;
+    border:none;
+    text-align: center;
+
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+.input:focus{
+    border:none;
+    outline: none;
+}
+.opacity-text {
+    color: rgb(241, 241, 241);
 }

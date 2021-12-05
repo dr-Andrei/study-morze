@@ -1,6 +1,7 @@
 //Старт
 document.querySelector(".start").onclick = t1;
 
+// Функция кнопки "Воспроизвести текст"
 function t1() {
 
     let str = document.querySelector('.container__text').value;
@@ -32,6 +33,7 @@ function t1() {
     let audiof = new Audio('audio/f.wav');
     let audioh = new Audio('audio/h.wav');
     let audioc = new Audio('audio/c.wav');
+    let audioch = new Audio('audio/ch.wav');
     let audiosh = new Audio('audio/sh.wav');
     let audioshia = new Audio('audio/shia.wav');
     let audioq = new Audio('audio/bz.wav');
@@ -67,6 +69,7 @@ function t1() {
         if (i == 'ф') out.push(audiof);
         if (i == 'х') out.push(audioh);
         if (i == 'ц') out.push(audioc);
+        if (i == 'ч') out.push(audioch);
         if (i == 'ш') out.push(audiosh);
         if (i == 'щ') out.push(audioshia);
         if (i == 'ь') out.push(audioq);
@@ -85,7 +88,7 @@ function t1() {
     //Функция старта воспроизведения
     startPlay();
     function startPlay() {
-        let id = setInterval(go, 1310);
+        let id = setInterval(go, 1400);
         let i1 = 0;
         let i2 = out.length;
         let err = 0;
@@ -110,13 +113,54 @@ function t1() {
         }
     };
 
-    //Кнопка очистки данных
-    document.querySelector(".clear").onclick = function () {
-        let arr = [];
-        let out = [];
-        document.querySelector('.container__text').value = '';
-        document.querySelector('.ok').innerHTML = '';
-    };
 }
 
+// Кнопка "Загрузить случайный текст" 
+document.querySelector('.onload-text').onclick = () => {
+
+    document.querySelector('.container__text').classList.add('opacity-text');
+
+    document.querySelector('.container__button-show').onclick = () => {
+        document.querySelector('.container__text').classList.remove('opacity-text');
+    }
+
+    ////////////////////////////////////////////////////
+    //      Генератор случайных фраз                 //
+    ///////////////////////////////////////////////////
+
+    let XHR = ("onload" in new XMLHttpRequest()) ? XMLHttpRequest : XDomainRequest;
+    let xhr = new XHR();
+
+    let type = 'paragraph'; // тип получаемого контента (абзацы)
+    let number = 3; // количество абзацев
+    let params = '&type=' + type + '&number=' + number;
+
+    xhr.open('GET', 'https://fish-text.ru/get?' + params, true);
+    xhr.onload = function () {
+        let result = JSON.parse(this.responseText);
+        if (result.status === 'success') {
+            let res = result.text;
+            localStorage.setItem('text', res);
+        } else {
+            console.log(result.errorCode + '\n' + result.text);
+        }
+    };
+
+    ///////////////////////////////////////////////////////////////
+
+    xhr.send();
+
+    let length = +document.querySelector('.container__input').value; // кол-во возвращаемых символов
+
+    let res = localStorage.getItem('text');
+    let outStr = trimFunction(length, res);
+
+    function trimFunction(x, res) {
+        let out = res.slice(0, x);
+        return out
+    }
+
+    document.querySelector('.container__text').value = outStr;
+    console.log(outStr);
+}
 
