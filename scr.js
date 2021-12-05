@@ -47,41 +47,45 @@ function t1() {
         if (i == 'а') out.push(audioa);
         if (i == 'б') out.push(audiob);
         if (i == 'в') out.push(audiov);
-        if (i == 'г') out.push(audiog)
-        if (i == 'д') out.push(audiod)
-        if (i == 'е') out.push(audioe)
-        if (i == 'ж') out.push(audiozh)
-        if (i == 'з') out.push(audioz)
-        if (i == 'и') out.push(audioi)
-        if (i == 'й') out.push(audioiii)
-        if (i == 'к') out.push(audiok)
-        if (i == 'л') out.push(audiol)
-        if (i == 'м') out.push(audiom)
-        if (i == 'н') out.push(audion)
-        if (i == 'о') out.push(audioo)
-        if (i == 'п') out.push(audiop)
-        if (i == 'р') out.push(audior)
-        if (i == 'с') out.push(audios)
-        if (i == 'т') out.push(audiot)
-        if (i == 'у') out.push(audiou)
-        if (i == 'ф') out.push(audiof)
-        if (i == 'х') out.push(audioh)
-        if (i == 'ц') out.push(audioc)
-        if (i == 'ш') out.push(audiosh)
-        if (i == 'щ') out.push(audioshia)
-        if (i == 'ь') out.push(audioq)
-        if (i == 'ы') out.push(audioii)
-        if (i == 'э') out.push(audioee)
-        if (i == 'ю') out.push(audioiu)
-        if (i == 'я') out.push(audioia)
-        if (i == ' ') out.push('пауза пробела')
+        if (i == 'г') out.push(audiog);
+        if (i == 'д') out.push(audiod);
+        if (i == 'е') out.push(audioe);
+        if (i == 'ж') out.push(audiozh);
+        if (i == 'з') out.push(audioz);
+        if (i == 'и') out.push(audioi);
+        if (i == 'й') out.push(audioiii);
+        if (i == 'к') out.push(audiok);
+        if (i == 'л') out.push(audiol);
+        if (i == 'м') out.push(audiom);
+        if (i == 'н') out.push(audion);
+        if (i == 'о') out.push(audioo);
+        if (i == 'п') out.push(audiop);
+        if (i == 'р') out.push(audior);
+        if (i == 'с') out.push(audios);
+        if (i == 'т') out.push(audiot);
+        if (i == 'у') out.push(audiou);
+        if (i == 'ф') out.push(audiof);
+        if (i == 'х') out.push(audioh);
+        if (i == 'ц') out.push(audioc);
+        if (i == 'ш') out.push(audiosh);
+        if (i == 'щ') out.push(audioshia);
+        if (i == 'ь') out.push(audioq);
+        if (i == 'ы') out.push(audioii);
+        if (i == 'э') out.push(audioee);
+        if (i == 'ю') out.push(audioiu);
+        if (i == 'я') out.push(audioia);
+        if (i == ' ') {
+            out.push('пауза пробела');
+            continue;
+        }
+        out.push('пауза между звуками');
 
     }
 
     //Функция старта воспроизведения
     startPlay();
     function startPlay() {
-        let id = setInterval(go, 1610);
+        let id = setInterval(go, 1310);
         let i1 = 0;
         let i2 = out.length;
         let err = 0;
@@ -98,8 +102,8 @@ function t1() {
                 }
                 catch (e) {
                     setTimeout(function () {
-                        err = e
-                    }, 1610)
+                        err = e;
+                    }, 1500)
                 }
                 i1++;
 
