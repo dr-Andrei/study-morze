@@ -150,7 +150,7 @@ document.querySelector('.onload-text').onclick = () => {
 
     xhr.send();
 
-    let length = +document.querySelector('.container__input').value; // кол-во возвращаемых символов
+    let length = +document.querySelector('.container__input').value ? +document.querySelector('.container__input').value : 20; // кол-во возвращаемых символов
 
     let res = localStorage.getItem('text');
     let outStr = trimFunction(length, res);
