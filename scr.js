@@ -89,7 +89,6 @@ function t1() {
         let i1 = 0;
         let i2 = out.length;
         let err = 0;
-        console.log(out);
 
         //Воспроизведение массива звуков
         function go() {
