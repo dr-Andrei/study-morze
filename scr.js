@@ -52,6 +52,7 @@ function t1() {
         if (i == 'г') out.push(audiog);
         if (i == 'д') out.push(audiod);
         if (i == 'е') out.push(audioe);
+        if (i == 'ё') out.push(audioe);
         if (i == 'ж') out.push(audiozh);
         if (i == 'з') out.push(audioz);
         if (i == 'и') out.push(audioi);
