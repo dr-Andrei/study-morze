@@ -17,9 +17,7 @@ class App extends React.Component {
   myMorzeCod = () => {
     this.setState({ trueStart: false });
     let countLetters = 10; // количество букв для рандомного текста
-    let textTest = 'Мы - как лодочники: гребем в одну сторону, смотрим в другую!?;-';
     let textRandom = fortune.get().substring(0, countLetters); // рандомный текст
-    // let textRandom = textTest;
     //массив CharCode символов для поиска и исключения из результата
     let massSymbols = [45, 59, 33, 58, 44, 63, 91, 93, 123, 125];
 
