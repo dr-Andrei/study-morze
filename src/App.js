@@ -18,7 +18,7 @@ class App extends React.Component {
     this.setState({ trueStart: false });
     let countLetters = 10; // количество букв для рандомного текста
     let textRandom = fortune.get().substring(0, countLetters); // рандомный текст
-    //массив CharCode символов для поиска и исключения из результата
+    //массив CharCode символов для поиска и исключения их из результата
     let massSymbols = [45, 59, 33, 58, 44, 63, 91, 93, 123, 125];
 
     //поиск недопустимых символов в строке и их устранение
