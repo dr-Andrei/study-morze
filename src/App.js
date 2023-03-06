@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
 import morse from 'morse-decoder';
 import mashine from './img/mashine.jpg';
@@ -22,12 +22,9 @@ class App extends React.Component {
     let massSymbols = [45, 59, 33, 58, 44, 63, 91, 93, 123, 125];
 
     //поиск недопустимых символов в строке и их устранение
-    let arrDone = textRandom.split('').map((elem) => {
-      if (!massSymbols.includes(elem.charCodeAt())) return elem;
-      else return '0';
-    }).filter(elem => {
-      if (elem != '0') return elem;
-    }).join('').split(' ').filter(elem => { if (elem != '') return elem }).join(' ').split('.')[0];
+    let arrDone = textRandom.split('').map((elem) => { if (!massSymbols.includes(elem.charCodeAt())) return elem; else return '0'; })
+      .filter(value => { if (value !== '0') return value; else return false; }).join('').split(' ')
+      .filter(value => { if (value !== '') return value; else return false; }).join(' ').split('.')[0];
 
     this.setState({ text: arrDone });
 
