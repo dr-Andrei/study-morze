@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: '',
+      text: '', //выводимый сгенерированный текст
       trueStart: true
     }
   }
