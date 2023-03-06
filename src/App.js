@@ -28,7 +28,7 @@ class App extends React.Component {
 
     this.setState({ text: arrDone });
 
-    const audio = morse.audio(textRandom, {
+    const audio = morse.audio(arrDone, {
       unit: 0.14, // продолжительность звука
       fwUnit: 0.3, // время между буквами
       oscillator: {
