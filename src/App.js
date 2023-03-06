@@ -17,20 +17,21 @@ class App extends React.Component {
   myMorzeCod = () => {
     this.setState({ trueStart: false });
     let countLetters = 10; // количество букв для рандомного текста
+    let textTest = 'Мы - как лодочники: гребем в одну сторону, смотрим в другую!?;-';
     let textRandom = fortune.get().substring(0, countLetters); // рандомный текст
+    // let textRandom = textTest;
+    //массив CharCode символов для поиска и исключения из результата
+    let massSymbols = [45, 59, 33, 58, 44, 63, 91, 93, 123, 125];
 
-    textRandom = textRandom.replace('--', '');
-    textRandom = textRandom.replace('"', '');
-    textRandom = textRandom.replace('!', '');
-    textRandom = textRandom.replace('?', '');
-    textRandom = textRandom.replace('...', '');
-    textRandom = textRandom.replace('-', ' ');
-    textRandom = textRandom.replace(';', '');
-    textRandom = textRandom.replace(':', '');
-    textRandom = textRandom.replace(')', '');
+    //поиск недопустимых символов в строке и их устранение
+    let arrDone = textRandom.split('').map((elem) => {
+      if (!massSymbols.includes(elem.charCodeAt())) return elem;
+      else return '0';
+    }).filter(elem => {
+      if (elem != '0') return elem;
+    }).join('').split(' ').filter(elem => { if (elem != '') return elem }).join(' ').split('.')[0];
 
-    textRandom = textRandom.split('.')[0];
-    this.setState({ text: textRandom });
+    this.setState({ text: arrDone });
 
     const audio = morse.audio(textRandom, {
       unit: 0.14, // продолжительность звука
@@ -77,8 +78,6 @@ class App extends React.Component {
             <img src={mashine} alt="" />
           </div>
         </main>
-
-
       </div>
     );
   }
