@@ -42,10 +42,10 @@
   padding: 10px 10px;
 }
 
-.App div {
+.App_work-area,
+.App_photo-area {
   width: 50%;
   display: inline-block;
-  height: 400px;
   box-sizing: border-box;
 }
 
@@ -62,4 +62,30 @@
 .App_work-area h3 {
   margin-block-start: 0em;
   margin-block-end: 1em;
+}
+
+.block-text {
+  display: block;
+  background-color: rgb(235, 235, 237);
+  border-radius: 4px;
+  position: relative;
+  z-index: 5;
+}
+
+.block-text p {
+  padding: 10px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 3;
+}
+
+.text-hide {
+  color: #c8c8c8;
+  opacity: 0.1;
+}
+
+.btn {
+  display: block;
+  margin-top: 10px;
+  width: 300px;
 }

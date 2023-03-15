@@ -10,7 +10,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       text: '', //выводимый сгенерированный текст
-      trueStart: true
+      trueStart: true,
+      showBtn: false
     }
   }
 
@@ -48,11 +49,15 @@ class App extends React.Component {
   startTrue = () => {
     if (this.state.trueStart) { this.myMorzeCod() }
   }
+  shText = () => {
+    document.querySelector('.block-text p').classList.toggle('text-hide');
+  }
   render() {
     //По нажатию Enter происходит старт процесса
     document.onkeydown = (e) => {
       if (e.key === 'Enter') { this.startTrue() };
     }
+
     return (
       <div className="App">
         <header>
@@ -60,12 +65,12 @@ class App extends React.Component {
           <p className='App__p'>.--. .-. .. .-- . -</p>
         </header>
         <main>
+          <h2>Нажмите "Прослушать новый текст" или клавишу Enter для старта</h2>
           <div className='App_work-area'>
             <h3>Ваш текст:</h3>
-            <p>{this.state.text ? this.state.text : 'Нажмите "Прослушать новый текст" или клавишу Enter для старта'}</p>
-            <button type="button" onClick={this.startTrue}>Прослушать новый текст</button>
-            <br />
-            <br />
+            <div className='block-text '><p className='text-hide'>{this.state.text ? this.state.text : 'Нажмите "Прослушать новый текст" или клавишу Enter для старта'}</p></div>
+            <button className='btn' type="button" onClick={this.startTrue}>Прослушать новый текст</button>
+            <button className='btn show-block-text' type="button" onClick={this.shText}>Посмотреть текст</button>
             <p><em>Поле для ввода текста:</em></p>
             <textarea rows="10" cols="50" autoFocus></textarea>
           </div>
