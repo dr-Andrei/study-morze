@@ -10,8 +10,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       text: '', //выводимый сгенерированный текст
-      trueStart: true,
-      showBtn: false
+      trueStart: true
     }
   }
 
