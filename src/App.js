@@ -10,7 +10,8 @@ class App extends React.Component {
     super(props);
     this.state = {
       text: '', //выводимый сгенерированный текст
-      trueStart: true
+      trueStart: true,
+      textForUsers: ''
     }
   }
 
@@ -27,6 +28,7 @@ class App extends React.Component {
       .filter(value => { if (value !== '') return value; else return false; }).join(' ').split('.')[0];
 
     this.setState({ text: arrDone });
+    this.setState({ textForUsers: 'сгенерирован новый текст' });
 
     const audio = morse.audio(arrDone, {
       unit: 0.14, // продолжительность звука
@@ -54,7 +56,8 @@ class App extends React.Component {
   render() {
     //По нажатию Enter происходит старт процесса
     document.onkeydown = (e) => {
-      if (e.key === 'Enter') { this.startTrue() };
+      if (e.key === 'Enter' || e.key === '1') { this.startTrue() };
+      if (e.key === '2') { this.shText() };
     }
 
     return (
@@ -66,10 +69,10 @@ class App extends React.Component {
         <main>
           <h2>Нажмите "Прослушать новый текст" или клавишу Enter для старта</h2>
           <div className='App_work-area'>
-            <h3>Ваш текст:</h3>
+            <h3>Ваш текст <em className='text-s'>{this.state.textForUsers}</em>:</h3>
             <div className='block-text '><p className='text-hide'>{this.state.text ? this.state.text : 'Нажмите "Прослушать новый текст" или клавишу Enter для старта'}</p></div>
-            <button className='btn' type="button" onClick={this.startTrue}>Прослушать новый текст</button>
-            <button className='btn show-block-text' type="button" onClick={this.shText}>Посмотреть текст</button>
+            <p><button className='btn' type="button" onClick={this.startTrue}>Прослушать новый текст</button> или нажмите <b>1</b></p>
+            <p><button className='btn show-block-text' type="button" onClick={this.shText}>Посмотреть текст</button> или нажмите <b>2</b></p>
             <p><em>Поле для ввода текста:</em></p>
             <textarea rows="10" cols="50" autoFocus></textarea>
           </div>
