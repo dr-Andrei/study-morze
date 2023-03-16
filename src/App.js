@@ -11,14 +11,24 @@ class App extends React.Component {
     this.state = {
       text: '', //выводимый сгенерированный текст
       trueStart: true,
-      textForUsers: ''
+      textForUsers: '',
+      countLetters: 10,  // количество букв для рандомного текста
+      init: () => {
+        //инициализация переменных с localStorage
+        if (localStorage.getItem('countLetters')) this.setState({ countLetters: localStorage.getItem('countLetters') });
+        else localStorage.setItem('countLetters', this.state.countLetters);
+      }
     }
+  }
+  componentDidMount() {
+    //запуск функции до отрисовки страницы
+    this.state.init();
   }
 
   myMorzeCod = () => {
+    this.state.init();
     this.setState({ trueStart: false });
-    let countLetters = 10; // количество букв для рандомного текста
-    let textRandom = fortune.get().substring(0, countLetters); // рандомный текст
+    let textRandom = fortune.get().substring(0, this.state.countLetters); // рандомный текст
     //массив CharCode символов для поиска и исключения их из результата
     let massSymbols = [45, 59, 33, 58, 44, 63, 91, 93, 123, 125];
 
@@ -53,6 +63,10 @@ class App extends React.Component {
   shText = () => {
     document.querySelector('.block-text p').classList.toggle('text-hide');
   }
+  f_countLetters = (e) => {
+    this.setState({ countLetters: e.target.value });
+    localStorage.setItem('countLetters', e.target.value);
+  }
   render() {
     //По нажатию Enter происходит старт процесса
     document.onkeydown = (e) => {
@@ -79,6 +93,11 @@ class App extends React.Component {
             <img src={mashine} alt="" />
           </div>
         </main>
+        <footer className='footer-edit'>
+          <h3>Настройки</h3>
+          <p>Количество выводимых символов: <b>{this.state.countLetters}</b></p>
+          <input className="footer-edit__count-letters" type="range" name="" max="100" min="3" onChange={this.f_countLetters} value={this.state.countLetters} />
+        </footer>
       </div>
     );
   }
