@@ -67,11 +67,10 @@ class App extends React.Component {
           <p className='App__p'>.--. .-. .. .-- . -</p>
         </header>
         <main>
-          <h2>Нажмите "Прослушать новый текст" или клавишу Enter для старта</h2>
+          <h2>Чтобы Прослушать новый текст нажмите клавишу <b>Enter</b> или <b>1</b></h2>
           <div className='App_work-area'>
             <h3>Ваш текст <em className='text-s'>{this.state.textForUsers}</em>:</h3>
             <div className='block-text '><p className='text-hide'>{this.state.text ? this.state.text : 'Нажмите "Прослушать новый текст" или клавишу Enter для старта'}</p></div>
-            <p><button className='btn' type="button" onClick={this.startTrue}>Прослушать новый текст</button> или нажмите <b>1</b></p>
             <p><button className='btn show-block-text' type="button" onClick={this.shText}>Посмотреть текст</button> или нажмите <b>2</b></p>
             <p><em>Поле для ввода текста:</em></p>
             <textarea rows="10" cols="50" autoFocus></textarea>
