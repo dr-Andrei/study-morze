@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import morse from 'morse-decoder';
 import mashine from './img/mashine.jpg';
+import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
+import LearnLetters from './LearnLetters';
 const fortune = require('fortune-cookie-ru');
 
 
@@ -79,7 +81,15 @@ class App extends React.Component {
         <header>
           <h1>Самоучитель Азбуки Морзе</h1>
           <p className='App__p'>.--. .-. .. .-- . -</p>
+          <ul>
+            <li><a href="/learnletters">Учить буквы</a></li>
+          </ul>
         </header>
+        <Router>
+          <Routes>
+            <Route path="/learnletters" element={<LearnLetters />} />
+          </Routes>
+        </Router>
         <main>
           <h2>Чтобы Прослушать новый текст нажмите клавишу <b>Enter</b> или <b>1</b></h2>
           <div className='App_work-area'>
@@ -98,6 +108,8 @@ class App extends React.Component {
           <p>Количество выводимых символов: <b>{this.state.countLetters}</b></p>
           <input className="footer-edit__count-letters" type="range" name="" max="100" min="3" onChange={this.f_countLetters} value={this.state.countLetters} />
         </footer>
+
+
       </div>
     );
   }
