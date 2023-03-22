@@ -1,0 +1,29 @@
+.article {
+    padding: 20px 0;
+}
+
+.letters-table {
+    border: 2px solid black;
+    border-spacing: 0px;
+    font-size: 20px;
+    text-shadow: none;
+}
+
+.letters-table thead {
+    background-color: #a8ff06;
+}
+
+.letters-table thead tr td {
+    border-bottom: 1px solid #245606;
+    border-right: 1px solid #245606;
+}
+
+.letters-table thead tr td:last-child {
+    border-right: 0;
+}
+
+.letters-table tr {}
+
+.letters-table tr td {
+    padding: 8px;
+}
