@@ -40,11 +40,11 @@ class Main extends React.Component {
         this.setState({ textForUsers: 'сгенерирован новый текст' });
 
         const audio = morse.audio(arrDone, {
-            unit: 0.14, // продолжительность звука
-            fwUnit: 0.3, // время между буквами
+            unit: 0.1, // продолжительность звука
+            fwUnit: 0.2, // время между буквами
             oscillator: {
                 type: 'sine',
-                frequency: 500,
+                frequency: 400,
                 onended: function () {
                     setTimeout(() => {
                         if (window.confirm("Запись закончена. Загрузить новую запись?") === true) {
