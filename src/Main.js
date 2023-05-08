@@ -40,8 +40,8 @@ class Main extends React.Component {
         this.setState({ textForUsers: 'сгенерирован новый текст' });
 
         const audio = morse.audio(arrDone, {
-            unit: 0.1, // продолжительность звука
-            fwUnit: 0.2, // время между буквами
+            unit: 0.13, // продолжительность звука
+            fwUnit: 0.26, // время между буквами
             oscillator: {
                 type: 'sine',
                 frequency: 400,

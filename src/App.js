@@ -3,6 +3,7 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link, Routes } from 'react-router-dom';
 import Main from './Main';
 import LearnLetters from './LearnLetters';
+import Menu from './Menu';
 
 
 class App extends React.Component {
@@ -11,11 +12,12 @@ class App extends React.Component {
     return (
       <div className="App">
         <header>
+          <Menu />
           <h1>Самоучитель Азбуки Морзе</h1>
           <p className='App__p'>.--. .-. .. .-- . -</p>
           <ul className='menu'>
-            <a className='menu__item' href="/"><li >Учиться на словах</li></a>
-            <a className='menu__item' href="/learnletters"><li>Учить буквы</li></a>
+            <a className='menu__item' href="/"><li >Диктант</li></a>
+            <a className='menu__item' href="/learnletters"><li>Азбука</li></a>
           </ul>
         </header>
         <Router>
