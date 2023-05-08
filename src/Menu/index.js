@@ -8,6 +8,7 @@ class Menu extends React.Component {
         super(props);
         this.state = {
             showMenu: 'none',
+
         }
     }
 
@@ -24,9 +25,14 @@ class Menu extends React.Component {
                 <div className='settings-menu_pole hide'>
                     <h3>Настройки</h3>
                     <ul className='settings-menu_pole__list'>
-                        <li className='settings-menu_pole__list-item'></li>
-                        <li className='settings-menu_pole__list-item'></li>
-                        <li className='settings-menu_pole__list-item'></li>
+                        <li className='settings-menu_pole__list-item'>
+                            <p>Продолжительность звука: <b>{this.state.countLetters}</b></p>
+                            <input className="footer-edit__count-letters" type="range" name="" max="100" min="0" onChange={this.f_countLetters} value={this.state.countLetters} />
+                        </li>
+                        <li className='settings-menu_pole__list-item'>
+                            <p>Время между звуками: <b>{this.state.countLetters}</b></p>
+                            <input className="footer-edit__count-letters" type="range" name="" max="100" min="0" onChange={this.f_countLetters} value={this.state.countLetters} />
+                        </li>
                     </ul>
                 </div>
             </div>
