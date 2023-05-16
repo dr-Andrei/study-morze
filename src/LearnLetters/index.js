@@ -11,11 +11,11 @@ class learnLetters extends React.Component {
     }
     playLetters = (e) => {
         const audio = morse.audio(e.target.attributes[1].textContent, {
-            unit: 0.14, // продолжительность звука
-            fwUnit: 0.3, // время между буквами
+            unit: localStorage.getItem('audio_size'), // продолжительность звука
+            fwUnit: localStorage.getItem('audio_size') * 2, // время между буквами
             oscillator: {
                 type: 'sine',
-                frequency: 500
+                frequency: 400
             }
         });
         audio.play(); // play audio
@@ -38,6 +38,12 @@ class learnLetters extends React.Component {
                             <td><b>.---</b></td>
                             <td>й-краа-ткооо-ееее</td>
                             <td><button type="button" data-letter="й" onClick={this.playLetters}>Play</button></td>
+                        </tr>
+                        <tr>
+                            <td>П</td>
+                            <td><b>.--.</b></td>
+                            <td>пи-лааа-пооо-ёт</td>
+                            <td><button type="button" data-letter="п" onClick={this.playLetters}>Play</button></td>
                         </tr>
                         <tr>
                             <td>Щ</td>
