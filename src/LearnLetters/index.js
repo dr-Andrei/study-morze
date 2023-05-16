@@ -57,6 +57,12 @@ class learnLetters extends React.Component {
                             <td>ыыы-не-нааа-дооо</td>
                             <td><button type="button" data-letter="ы" onClick={this.playLetters}>Play</button></td>
                         </tr>
+                        <tr>
+                            <td>Ь</td>
+                            <td><b>-..-</b></td>
+                            <td>яяяя-мяг-кий-знаааак</td>
+                            <td><button type="button" data-letter="ь" onClick={this.playLetters}>Play</button></td>
+                        </tr>
                     </tbody>
                 </table>
             </article>
