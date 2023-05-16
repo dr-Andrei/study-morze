@@ -16,6 +16,8 @@ class Main extends React.Component {
                 //инициализация переменных с localStorage
                 if (localStorage.getItem('countLetters')) this.setState({ countLetters: localStorage.getItem('countLetters') });
                 else localStorage.setItem('countLetters', this.state.countLetters);
+                if (localStorage.getItem('audio_size')) this.setState({ audio_size: localStorage.getItem('audio_size') });
+                else localStorage.setItem('audio_size', 0.1);
             }
         }
     }
@@ -40,8 +42,8 @@ class Main extends React.Component {
         this.setState({ textForUsers: 'сгенерирован новый текст' });
 
         const audio = morse.audio(arrDone, {
-            unit: 0.13, // продолжительность звука
-            fwUnit: 0.26, // время между буквами
+            unit: localStorage.getItem('audio_size'), // продолжительность звука
+            fwUnit: localStorage.getItem('audio_size') * 2, // время между буквами
             oscillator: {
                 type: 'sine',
                 frequency: 400,
@@ -80,7 +82,7 @@ class Main extends React.Component {
                         <h3>Ваш текст <em className='text-s'>{this.state.textForUsers}</em>:</h3>
                         <div className='block-text '><p className='text-hide'>{this.state.text ? this.state.text : '...'}</p></div>
                         <p><button className='btn show-block-text' type="button" onClick={this.shText}>Посмотреть текст</button> или нажмите <b>2</b></p>
-                        <p><em>Поле для ввода текста:</em></p>
+                        <p><em>Черновик для ввода текста:</em></p>
                         <textarea rows="10" cols="50" autoFocus></textarea>
                     </div>
                     <div className='App_photo-area'>

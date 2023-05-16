@@ -61,3 +61,8 @@
     display: flex;
     justify-content: space-between;
 }
+
+.settings-menu_pole__out_n1 {
+    padding: 10px 0;
+    margin: 0;
+}
