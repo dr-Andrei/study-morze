@@ -73,6 +73,8 @@ class Main extends React.Component {
         document.onkeydown = (e) => {
             if (e.key === 'Enter' || e.key === '1') { this.startTrue() };
             if (e.key === '2') { this.shText() };
+            //console.log(e.key);
+            //F4, F6, F8
         }
         return (
             <div>
